@@ -17,7 +17,7 @@ navLinks.forEach(link => {
 
 // Project filtering
 const filterBtns = document.querySelectorAll('.filter-btn');
-const projectCards = document.querySelectorAll('.project-card');
+const projectCards = document.querySelectorAll('#data-projects .project-card');
 
 filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -33,5 +33,14 @@ filterBtns.forEach(btn => {
                 card.style.display = 'none';
             }
         });
+    });
+});
+
+// Set default filter to Python on page load
+document.addEventListener('DOMContentLoaded', () => {
+    projectCards.forEach(card => {
+        if (card.getAttribute('data-category') !== 'python') {
+            card.style.display = 'none';
+        }
     });
 });
